@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissor</title>
+    <link rel="shortcut icon" href="Images/9-RPS-example.png">
+</head>
+
+<body>
+
+    <h1>Rock, Paper, Scissors!</h1>
+
+
+    <script type="text/javascript">
+        var score = 0;
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function getResult(player, comp){
+            if (player === comp) {
+                alert("TIED");
+            } else if ((player === "r") && (comp === "p")) {
+                alert("LOSS");
+            } else if ((player === "r") && (comp === "s")) {
+                alert("WIN");
+                score++;
+            } else if ((player === "p") && (comp === "r")) {
+                alert("WIN");
+                score++;
+            } else if ((player === "p") && (comp === "s")) {
+                alert("LOSS");
+            } else if ((player === "s") && (comp === "r")) {
+                alert("LOSS");
+            } else if ((player === "s") && (comp === "p")) {
+                alert("WIN");
+                score++;
+            }
+
+        }
+
+        var rps = ["r", "p", "s"];
+
+        for (var i = 1; i < 11; i++) {
+
+            var selected = prompt("Round: " + i + "/n Enter r, p, s");
+            var cp = rps[getRndInteger(0,2)];
+            alert("Computer chose: " + cp)
+            getResult(selected,cp)
+
+        }
+        alert("You scored: " + score);
+
+
+    </script>
+</body>
+
+</html>
